@@ -1,0 +1,28 @@
+{
+  "BarApp": {
+    "bar": {
+      "home": {
+        "title": "Bar",
+        "refreshListLabel": "Liste aktualisieren",
+        "createLabel": "Bar erstellen",
+        "createOrEditLabel": "Bar erstellen oder bearbeiten",
+        "notFound": "Keine Bars gefunden"
+      },
+      "created": "Bar erstellt mit ID { param }",
+      "updated": "Bar aktualisiert mit ID { param }",
+      "deleted": "Bar gelöscht mit ID { param }",
+      "delete": {
+        "question": "Soll Bar { id } wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Bar"
+      },
+      "id": "ID",
+      "name": "Name",
+      "angebotsnummer": "Angebotsnummer",
+      "schlagwort": "Schlagwort",
+      "versicherungsbeginn": "Versicherungsbeginn",
+      "buJN": "Bu JN"
+    }
+  }
+}
