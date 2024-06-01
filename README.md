@@ -1,11 +1,13 @@
-quickstart-mvc-vue3-pinia-axios-vuelidate
+#quickstart-mvc-vue3-pinia-axios-vuelidate
 
-Features:
- -MVC-Pattern/bidirektional binding with pinia-store over v-model/toRefs (Bar.ts/Bar.vue/Bar.model.ts/BarStore.ts)
- -validation example to extend(config/validation.ts)
- -i18n
- -backend for REST-Services prepared (BarStore.ts)
- -dev-/prod(".env.production/.env.development") see maven profile "embedded-tomcat"
+#Features:
+	 -MVC-Pattern/bidirektional binding with pinia-store over v-model/toRefs (Angebot.ts/v.vue/v.model.ts/AngebotStore.ts)
+	 -validation example to extend(config/validation.ts)
+	 -i18n
+	-backend for REST-Services prepared (AngebotStore.ts)
+	-REST-Backend with Quarkus
+	-dev-/prod(".env.production/.env.development") see maven profile "embedded-tomcat"
+
 
 import in eclipse
 

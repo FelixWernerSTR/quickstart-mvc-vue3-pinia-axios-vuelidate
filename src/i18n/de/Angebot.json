@@ -1,0 +1,28 @@
+{
+  "AngebotApp": {
+    "angebot": {
+      "home": {
+        "title": "Angebot",
+        "refreshListLabel": "Liste aktualisieren",
+        "createLabel": "Angebot erstellen",
+        "createOrEditLabel": "Angebot erstellen oder bearbeiten",
+        "notFound": "Keine Angebots gefunden"
+      },
+      "created": "Angebot erstellt mit ID { param }",
+      "updated": "Angebot aktualisiert mit ID { param }",
+      "deleted": "Angebot gelöscht mit ID { param }",
+      "delete": {
+        "question": "Soll Angebot { id } wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Angebot"
+      },
+      "id": "ID",
+      "name": "Name",
+      "angebotsnummer": "Angebotsnummer",
+      "schlagwort": "Schlagwort",
+      "versicherungsbeginn": "Versicherungsbeginn",
+      "buJN": "Bu JN"
+    }
+  }
+}

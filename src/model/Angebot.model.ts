@@ -1,13 +1,4 @@
-export class IBar {
-  id?: number;
-  name?: string | null;
-  angebotsnummer?: number | null;
-  schlagwort?: string | null;
-  versicherungsbeginn?: string | Date | null;
-  buJN?: boolean | null;
-}
-
-export class Bar implements IBar {
+export class Angebot {
   constructor(
     public id?: number,
     public name?: string | null,

@@ -1,13 +1,13 @@
 import axios from "axios";
 
-import { IBar } from "@/model/Bar.model";
+import { Angebot } from "@/model/Angebot.model";
 
-const baseApiUrl = __VITE_BASE_API_URL_BAR__;
+const baseApiUrl = __VITE_BASE_API_URL_ANGEBOT__;
 
-export default class BarService {
+export default class AngebotService {
 
-  public find(id: number): Promise<IBar> {
-    return new Promise<IBar>((resolve, reject) => {
+  public find(id: number): Promise<Angebot> {
+    return new Promise<Angebot>((resolve, reject) => {
       axios
         .get(`${baseApiUrl}/${id}`)
         .then((res: any) => {
@@ -45,8 +45,8 @@ export default class BarService {
     });
   }
 
-  public save(entity: IBar): Promise<IBar> {
-    return new Promise<IBar>((resolve, reject) => {
+  public save(entity: Angebot): Promise<Angebot> {
+    return new Promise<Angebot>((resolve, reject) => {
       axios
         .post(`${baseApiUrl}`, entity)
         .then((res: any) => {

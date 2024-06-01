@@ -25,7 +25,7 @@ export default defineComponent({
     provide('translationService', translationService);
     
     console.debug("APP_INFO:", __APP_INFO__);
-    console.debug("VITE_BASE_API_URL_BAR:", __VITE_BASE_API_URL_BAR__);
+    console.debug("VITE_BASE_API_URL_ANGEBOT:", __VITE_BASE_API_URL_ANGEBOT__);
     
     return {};
   },

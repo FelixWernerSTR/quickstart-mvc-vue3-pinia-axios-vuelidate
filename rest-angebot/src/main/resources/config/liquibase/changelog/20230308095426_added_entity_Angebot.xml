@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <!--
+        Added the entity Angebot.
+    -->
+    <changeSet id="20230308095426-1" author="angebot">
+        <createTable tableName="angebot" remarks="not an ignored comment">
+            <column name="id" type="bigint">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="description" type="${clobType}">
+                <constraints nullable="true" />
+            </column>
+            <column name="name" type="varchar(50)">
+                <constraints nullable="true" />
+            </column>
+            <column name="vorname" type="varchar(50)">
+                <constraints nullable="true" />
+            </column>
+            <column name="geburts_datum" type="date">
+                <constraints nullable="true" />
+            </column>
+            <column name="strasse" type="varchar(50)">
+                <constraints nullable="true" />
+            </column>
+            <column name="haus_nummer" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="plz" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="land" type="varchar(50)">
+                <constraints nullable="true" />
+            </column>
+        </createTable>
+    </changeSet>
+
+
+    <!--
+        Load sample data generated with Faker.js
+        - This data can be easily edited using a CSV editor (or even MS Excel) and
+          is located in the 'src/main/resources/config/liquibase/fake-data' directory
+        - By default this data is applied when running with the 'dev' profile.
+          This can be customized by adding or removing 'faker' in the 'spring.liquibase.contexts'
+          Spring Boot configuration key.
+    -->
+    <changeSet id="20230308095426-1-data" author="angebot" context="faker">
+        <loadData
+                  file="config/liquibase/fake-data/angebot.csv"
+                  separator=";"
+                  tableName="Angebot"
+                  usePreparedStatements="true">
+            <column name="id" type="numeric"/>
+            <column name="description" type="clob"/>
+            <column name="name" type="string"/>
+            <column name="vorname" type="string"/>
+            <column name="geburts_datum" type="date"/>
+            <column name="strasse" type="string"/>
+            <column name="haus_nummer" type="numeric"/>
+            <column name="plz" type="numeric"/>
+            <column name="land" type="string"/>
+        </loadData>
+    </changeSet>
+</databaseChangeLog>

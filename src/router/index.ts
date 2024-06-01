@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import { createPinia, storeToRefs } from "pinia";
-import { useBar } from "@/stores/BarStore";
-import { Bar } from "../model/Bar.model";
+import { useAngebot } from "@/stores/AngebotStore";
+import { Angebot } from "../model/Angebot.model";
 
       
 const router = createRouter({
@@ -9,8 +9,8 @@ const router = createRouter({
   routes: [
     {
       path: "/",
-      name: "bar",
-      component: () => import("../components/Bar.vue"),
+      name: "angebot",
+      component: () => import("../components/Angebot.vue"),
     },
     {
       path: "/about",

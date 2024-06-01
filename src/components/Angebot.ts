@@ -1,34 +1,41 @@
-import {defineComponent, ref, watch} from "vue";
-import { useRouter} from "vue-router";
-import {storeToRefs} from "pinia";
-import {useBar} from "@/stores/BarStore";
-import {useVuelidate} from '@vuelidate/core'
-import {maxLength} from '@vuelidate/validators'
-import { IBar } from "@/model/Bar.model";
+import { defineComponent, ref, watch } from "vue";
+import { useRouter } from "vue-router";
+import { storeToRefs } from "pinia";
+import { useAngebot } from "@/stores/AngebotStore";
+import { useVuelidate } from '@vuelidate/core'
+import { maxLength } from '@vuelidate/validators'
+import { Angebot } from "@/model/Angebot.model";
 import { useI18n } from 'vue-i18n';
 import { useValidation } from '@/config/validation';
 
 export default defineComponent({
-  name: "Bar",
+  name: "Angebot",
   components: {
   },
   setup() { // do not use the keyword 'this' in the setup method -> 'this' is undefined in the setup method
-    const barStore = useBar();
-    const { bar, isRequestLoading } = storeToRefs(barStore);
-    
+    const angebotStore = useAngebot();
+    const { angebot, isRequestLoading, isAngebotValid } = storeToRefs(angebotStore);
+
     function save() {
-      console.debug("bar:", bar.value);
-      barStore.save();
+      console.debug("angebot:", angebot.value);
+      angebotStore.save();
     }
     
-    function getBarForId() {
-      console.log("getBarForId:", bar.id);
-      //TODO
+    function changeState() {
+      console.debug("changeState");
+      angebotStore.changeState();
+    }
+    
+    const inputAngebotId = ref(1);
+    
+    function getAngebotForId() {
+      console.log("getAngebotForId:", inputAngebotId.value);
+      angebotStore.getAngebotforId(inputAngebotId.value);
     }
 
     //https://runthatline.com/pinia-watch-state-getters-inside-vue-components/
-    watch(bar, () => {
-      console.debug('Bar ref changed, do something!')
+    watch(angebot.value, () => {
+      console.debug('Angebot ref changed, do something!')
     })
 
     
@@ -48,23 +55,26 @@ export default defineComponent({
       // }
     }
 
-    let v$ = useVuelidate(validationRules, bar.value)
+    let v$ = useVuelidate(validationRules, angebot.value)
     v$.value.$validate();
 
     watch(v$, () => {
       console.debug('v$ changed, do something!', v$)
       if(v$.value.$errors.length>0){
         console.debug('v$.$errors', v$.value.$errors);
-         barStore.setIsBarValid(false);
+         angebotStore.setIsAngebotValid(false);
       }else{
-         barStore.setIsBarValid(true);
+         angebotStore.setIsAngebotValid(true);
       }
     });
 
     return {
-      bar,
+      angebot,
+      isAngebotValid,
       save,
-      getBarForId,
+      changeState,
+      getAngebotForId,
+      inputAngebotId,
       v$,
       t$,
     };

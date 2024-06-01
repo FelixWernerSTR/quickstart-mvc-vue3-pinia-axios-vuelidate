@@ -15,14 +15,14 @@ const __APP_INFO__ = {
 
 // https://vitejs.dev/config/
 export default ({ command, mode }: ConfigEnv): UserConfig => {
-  const { VITE_BASE_API_URL_BAR } = loadEnv(mode, CWD);
+  const { VITE_BASE_API_URL_ANGEBOT } = loadEnv(mode, CWD);
 
   const isBuild = command === 'build';
 
   return {
   define: {
     __APP_INFO__: JSON.stringify(__APP_INFO__),
-    __VITE_BASE_API_URL_BAR__: JSON.stringify(VITE_BASE_API_URL_BAR),
+    __VITE_BASE_API_URL_ANGEBOT__: JSON.stringify(VITE_BASE_API_URL_ANGEBOT),
   },
   plugins: [vue()],
   resolve: {
@@ -32,12 +32,12 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
   },
   build: {  
     target: 'modules', //https://vitejs.dev/config/build-options#build-target
-    minify: false, // damit der javascriptcode in "dist/selenium" noch lesbar(im debugger) bleibt , https://vitejs.dev/config/build-options#build-minify
-    assetsInlineLimit: 0, //https://vitejs.dev/config/build-options#build-assetsinlinelimit
+    minify: true, // damit der javascriptcode in "dist/selenium" noch lesbar(im debugger) bleibt , https://vitejs.dev/config/build-options#build-minify
+    assetsInlineLimit: 4096, //https://vitejs.dev/config/build-options#build-assetsinlinelimit
   },
   server: {//ACHTUNG! diese Ausgaben sind nur auf der vite-Konsole zu sehen!
     proxy: {
-      '/api/bar': {
+      '/api/angebot': {
         target: 'http://localhost:8080',
         changeOrigin: true,
         configure: (proxy, _options) => {

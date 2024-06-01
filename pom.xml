@@ -12,8 +12,8 @@
     <name>quickstart-mvc-vue3-pinia-axios-vuelidate</name>
 
 	<properties>
-		<node.version>v20.11.1</node.version>
-		<maven-compiler-plugin.version>3.10.1</maven-compiler-plugin.version>
+		<node.version>v20.14.0</node.version>
+		<maven-compiler-plugin.version>3.13.0</maven-compiler-plugin.version>
 		<!-- Plugin versions -->
 		<!-- Quelle: https://nodejs.org/dist/ , https://registry.npmjs.org/npm/-/npm-x.xx.xx.tgz -->
 		<!--mvn fr.jcgay.maven.plugins:buildplan-maven-plugin:1.3:list -->
